@@ -2,10 +2,16 @@ const NODE_ENV = process.env.NODE_ENV || 'development';
 const webpack = require('webpack');
 
 module.exports = {
-    entry: "./home",
+    context: __dirname + '/frontend', // чтобы не дублировать в entry пути ./frontend/home, ./frontend/about etc
+
+    entry: {
+        home: "./home",
+        about: "./about"
+    },
     output: {
-        filename: 'build.js',
-        library: 'home' // в переменной home будут храниться экспортированные модули
+        path: __dirname + '/public', // рекомендуется использовать именно абсолютный путь
+        filename: '[name].js',
+        library: '[name]' // в переменной home  и about будут храниться экспортированные модули
     },
 
     watch: NODE_ENV == 'development',
@@ -16,6 +22,7 @@ module.exports = {
     devtool: NODE_ENV == 'development' ? 'source-map' : null,
 
     plugins: [
+        new webpack.NoErrorsPlugin(), // не позволяет webpack скомпилить файлы в случае ошибки
         new webpack.DefinePlugin({
             NODE_ENV: JSON.stringify(NODE_ENV)
         })
