@@ -25,7 +25,10 @@ module.exports = {
         new webpack.NoErrorsPlugin(), // не позволяет webpack скомпилить файлы в случае ошибки
         new webpack.DefinePlugin({
             NODE_ENV: JSON.stringify(NODE_ENV)
-        })
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'common'
+        }) // для выделения общей части у модулей для возможности подключения на странице файла с этой общей частью
     ],
 
     resolve: {
