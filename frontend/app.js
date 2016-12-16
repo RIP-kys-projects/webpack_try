@@ -1,23 +1,22 @@
 "use strict";
 
-document.getElementById('loginButton').onclick = function() {
+let moduleName = location.pathname.slice(1); // /about
 
-    // ======== Способ 1 (require.ensure) ==
-    require.ensure([], function(require) {
-        let login = require('./login');
+let route = require('./routes/' + moduleName);
+route();
 
-        login();
-    }, 'auth');
+/*let handler;
+try {
+    let context = require.context('bundle!./routes/', true, /^\.\//);
+    handler = context('./' + moduleName);
+} catch (e) {
+    alert("No such path");
+}
 
-};
+if (handler) {
+    handler(function(route) {
 
-document.getElementById('logoutButton').onclick = function() {
+        route();
 
-    // ======== Способ 1 (require.ensure) ==
-    require.ensure([], function(require) {
-        let logout = require('./logout');
-
-        logout();
-    }, 'auth');
-
-};
+    });
+}*/
