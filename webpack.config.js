@@ -6,7 +6,8 @@ module.exports = {
 
     entry: {
         home: "./home",
-        about: "./about"
+        about: "./about",
+        common: './common' // код отсюда плагин CommonChunksPlugin включит в результирующий файл common.js
     },
     output: {
         path: __dirname + '/public', // рекомендуется использовать именно абсолютный путь
@@ -27,8 +28,9 @@ module.exports = {
             NODE_ENV: JSON.stringify(NODE_ENV)
         }),
         new webpack.optimize.CommonsChunkPlugin({
-            name: 'common'
-        }) // для выделения общей части у модулей для возможности подключения на странице файла с этой общей частью
+            name: 'common',
+            minChunks: 2 // минимальное число модулей, для формирования чанков
+        }) // для выделения общ. части у модулей для возможности подключения на странице файла с общей частью + сам плагин можно вызывать несколько раз
     ],
 
     resolve: {

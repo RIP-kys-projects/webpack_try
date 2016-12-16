@@ -1,3 +1,4 @@
+var common =
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// install a JSONP callback for chunk loading
 /******/ 	var parentJsonpFunction = window["webpackJsonp_name_"];
@@ -30,7 +31,7 @@
 /******/ 	// "0" means "already loaded"
 /******/ 	// Array means "loading", array contains callbacks
 /******/ 	var installedChunks = {
-/******/ 		2:0
+/******/ 		1:0
 /******/ 	};
 /******/
 /******/ 	// The require function
@@ -76,7 +77,7 @@
 /******/ 			script.charset = 'utf-8';
 /******/ 			script.async = true;
 /******/
-/******/ 			script.src = __webpack_require__.p + "" + chunkId + "." + ({"0":"about","1":"home"}[chunkId]||chunkId) + ".js";
+/******/ 			script.src = __webpack_require__.p + "" + chunkId + "." + ({"0":"about","2":"home"}[chunkId]||chunkId) + ".js";
 /******/ 			head.appendChild(script);
 /******/ 		}
 /******/ 	};
@@ -89,10 +90,21 @@
 /******/
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(0);
 /******/ })
 /************************************************************************/
 /******/ ([
-/* 0 */,
+/* 0 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	// тут может быть общий код (например, инициализация библиотек и т.п.)
+	alert('hello, libraries initialization code is in bunle!');
+
+/***/ },
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
