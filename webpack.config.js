@@ -5,7 +5,7 @@ module.exports = {
     entry: "./home",
     output: {
         filename: 'build.js',
-        library: 'home'
+        library: 'home' // в переменной home будут храниться экспортированные модули
     },
 
     watch: NODE_ENV == 'development',

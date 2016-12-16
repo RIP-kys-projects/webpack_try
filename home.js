@@ -4,4 +4,4 @@ let welcome = require('./welcome');
 
 welcome('home');
 
-exports.welcome = welcome;
+exports.welcome = welcome; // экспортируем для доступа снаружи
