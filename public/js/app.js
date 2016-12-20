@@ -48,8 +48,13 @@
 
 	let moduleName = location.pathname.slice(1); // /about
 
-	let route = __webpack_require__(1)("./" + moduleName);
-	route();
+	let context = __webpack_require__(1);
+
+	context.keys().forEach(function (path) {
+	    let module = context(path);
+	    module();
+	});
+
 
 	/*let handler;
 	try {
@@ -72,9 +77,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./about": 2,
 		"./about.js": 2,
-		"./home": 3,
 		"./home.js": 3
 	};
 	function webpackContext(req) {
