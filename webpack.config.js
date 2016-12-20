@@ -12,7 +12,7 @@ module.exports = {
 
     output: {
         path:     __dirname + '/public/js',
-        publicPath: '/js/',  //   /js/app.js
+        publicPath: '/js/',  //   /js/app.js - интернет-путь к нашей сборке
         filename: "[name].js"
     },
 
