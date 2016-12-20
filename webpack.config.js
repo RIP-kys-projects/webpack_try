@@ -12,7 +12,7 @@ module.exports = {
         common: './common' // код отсюда плагин CommonChunksPlugin включит в результирующий файл common.js
     },
     output: {
-        path: __dirname + '/public', // рекомендуется использовать именно абсолютный путь
+        path: __dirname + '/public', // рекомендуется использовать именно абсолютный путь к директории
         filename: '[name].js',
         library: '[name]' // в переменной home  и about будут храниться экспортированные модули
     },
@@ -53,7 +53,7 @@ module.exports = {
             exclude: /node_modules/,
             loader: 'babel',
             query: {
-                presets: ['es2015']
+                presets: ['es2015'] // Чтобы хелперы babel не были в каждом модуле сборки, можно https://github.com/babel/babel-loader#babel-is-injecting-helpers-into-each-file-and-bloating-my-code
             }
         }]
 
