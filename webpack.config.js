@@ -4,10 +4,10 @@ const NODE_ENV = process.env.NODE_ENV || 'development';
 const webpack = require('webpack');
 
 module.exports = {
-    context: __dirname + '/frontend', // чтобы не дублировать в entry пути ./frontend/home, ./frontend/about etc
+    context: __dirname + '/frontend', // задаем контекст, чтобы не дублировать в entry пути ./frontend/home, ./frontend/about etc
 
     entry: {
-        home: "./home",
+        home: "./home", // ./ - текущая директория
         about: "./about",
         common: './common' // код отсюда плагин CommonChunksPlugin включит в результирующий файл common.js
     },
@@ -50,7 +50,7 @@ module.exports = {
 
         loaders: [{
             test: /\.js$/,
-            exclude: /node_modules/,
+            exclude: /node_modules/, // исключаем из подлежащих проверке директорий папку с node_modules (loader не применяется)
             loader: 'babel',
             query: {
                 presets: ['es2015'] // Чтобы хелперы babel не были в каждом модуле сборки, можно https://github.com/babel/babel-loader#babel-is-injecting-helpers-into-each-file-and-bloating-my-code
