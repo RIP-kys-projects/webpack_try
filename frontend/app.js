@@ -1,6 +1,6 @@
 "use strict";
 
-let moduleName = location.pathname.slice(1); // /about
+let moduleName = location.pathname.slice(1); // заходим, например, на /about
 
 let handler;
 try {
